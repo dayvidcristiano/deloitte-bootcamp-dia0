@@ -1,0 +1,15 @@
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\bin\Debug\net10.0\projectmina.exe
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\bin\Debug\net10.0\projectmina.deps.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\bin\Debug\net10.0\projectmina.runtimeconfig.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\bin\Debug\net10.0\projectmina.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\bin\Debug\net10.0\projectmina.pdb
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.AssemblyInfoInputs.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.AssemblyInfo.cs
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.sourcelink.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\refint\projectmina.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.pdb
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\projectmina.genruntimeconfig.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\dia03\projectmina\obj\Debug\net10.0\ref\projectmina.dll
