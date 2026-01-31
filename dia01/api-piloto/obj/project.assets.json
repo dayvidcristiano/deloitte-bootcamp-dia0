@@ -498,19 +498,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aluno\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Downloads\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
       "projectName": "api-piloto",
-      "projectPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
-      "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\obj\\",
+      "projectPath": "C:\\Users\\User\\Downloads\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Downloads\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
