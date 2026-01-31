@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("api-piloto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd6fe558413d0f409dda6afada9515add5e3e62d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1f2728b2405f99773c39b472623b18393f3a053")]
 [assembly: System.Reflection.AssemblyProductAttribute("api-piloto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("api-piloto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
