@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1EC9tGBigTQ=",
+  "dgSpecHash": "6kQsAI92Q18=",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Downloads\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\bootecamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.2\\microsoft.aspnetcore.openapi.10.0.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
