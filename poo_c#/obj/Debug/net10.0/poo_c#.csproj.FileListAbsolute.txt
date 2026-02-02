@@ -1,0 +1,15 @@
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\bin\Debug\net10.0\poo_c#.exe
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\bin\Debug\net10.0\poo_c#.deps.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\bin\Debug\net10.0\poo_c#.runtimeconfig.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\bin\Debug\net10.0\poo_c#.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\bin\Debug\net10.0\poo_c#.pdb
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.AssemblyInfoInputs.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.AssemblyInfo.cs
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.sourcelink.json
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\refint\poo_c#.dll
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.pdb
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\poo_c#.genruntimeconfig.cache
+C:\Users\aluno\Desktop\bootcamp_dtt\deloitte-bootcamp-dia0\poo_c#\obj\Debug\net10.0\ref\poo_c#.dll
