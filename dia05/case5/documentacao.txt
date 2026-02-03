@@ -1,0 +1,24 @@
+Objetivo do sistema: O sistema foi desenvolvido para acompanhar o fluxo de visitantes de um Coworking. 
+
+Linguagem utilizada: C#.
+
+Principais funcionalidades: Cadastrar, Listar, Buscar por nome, Registrar Saída.
+
+Principais variaveis: Nome, Documento, PrimeiraVez, HorarioChegada. 
+
+Principais classes: Visitante, Coworking, CadastrarVisitante, ListarVisitante, RegistrarSaida, BuscarVisitante. 
+
+Foi utilizado try/catch para que os erros que estiverem no código ele consiga mostrar o erro. o try ele aramazena o codigo a ser utilizado e o catch ele aponta uma mensagem de erro, caso haja erro ao rodar o codigo. 
+
+Ao iniciar o programa um menu devera ser exibido para que o usuario possa escolher qual função executar. O menu foi desenvolvido dentro de um laço while para que ele continue rodando até o momento em que o usuario permita parar. 
+
+Dentro do laço foi utilizado o switch/case para que quando o usuário selecione o número, uma ação seja execuatda, ou seja, ele chame uma função declarada. 
+
+Foram criadas funções para cada ação a ser chamada, a primeira função em código é o CadastrarVisitante, que recebe apenas as informações digitadas pelo usuario e armazenada na variavel 'V'. 
+
+A função ListarVisitante recebe informações armazenadas na variavel 'v'. Um FOR foi criado para que as informações sejam armazenadas dentro de um array, com o contador iniciando a partir de 0. 
+
+Para o RegistrarSaida foi utilizado o 'RemoveAt' que remove apenas o objeto selecionado do array. O usuario escolhe qual o indice/id que ele deseja remover, ex.: '0'; e apenas aquele id será removido. 
+
+Para BuscarVisitante foi utilizado foreach para recorrer todos os dados aramazenados dentro do laço, e a pessoa conseguir filtrar visitante digitando apenas o nome. Foi utilizado o 'ToUpper' para que o usuario consiga buscar digitando de qualquer forma o caractere, seja caixa alta ou baixa. 
+

@@ -86,7 +86,7 @@ public class Coworking
             var v = listarVisitantes[i];
             string primeiraVezTxt = v.PrimeiraVez ? "Sim" : "Não";
 
-            Console.WriteLine($"{i} - Nome: {v.Nome} | Chegada: {v.HorarioChegada:HH:mm} | 1 Vez: {primeiraVezTxt}");
+            Console.WriteLine($"{i} - Nome: {v.Nome} | Chegada: {v.HorarioChegada:HH:mm:ss} | 1 Vez: {primeiraVezTxt}");
         }
     }
 

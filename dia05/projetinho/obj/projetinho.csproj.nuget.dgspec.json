@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj": {}
+    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\projetinho\\projetinho.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj": {
+    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\projetinho\\projetinho.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
-        "projectName": "api-piloto",
-        "projectPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\api-piloto.csproj",
+        "projectUniqueName": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\projetinho\\projetinho.csproj",
+        "projectName": "projetinho",
+        "projectPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\projetinho\\projetinho.csproj",
         "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia01\\api-piloto\\obj\\",
+        "outputPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\projetinho\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -50,7 +50,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[10.1.0, )"
+              "version": "[10.1.1, )"
             }
           },
           "imports": [
