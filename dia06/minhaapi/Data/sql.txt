@@ -1,0 +1,41 @@
+CREATE SCHEMA IF NOT EXISTS public;
+
+DROP TABLE IF EXISTS public.lotes_minerio CASCADE;
+
+CREATE TABLE public.lotes_minerio (
+    id               SERIAL PRIMARY KEY,
+    codigo_lote      VARCHAR(50) NOT NULL,
+    mina_origem      VARCHAR(120) NOT NULL,
+    teor_fe          NUMERIC(5,2) NOT NULL,      
+    umidade          NUMERIC(5,2) NOT NULL,      
+    sio2             NUMERIC(5,2),               
+    p                NUMERIC(5,3),               
+    toneladas        NUMERIC(12,3) NOT NULL,      
+    data_producao    TIMESTAMPTZ NOT NULL,        
+    status           INTEGER NOT NULL,            
+    localizacao_atual VARCHAR(200) NOT NULL
+);
+
+
+CREATE UNIQUE INDEX ux_lotes_minerio_codigo_lote
+    ON public.lotes_minerio (codigo_lote);
+
+
+ALTER TABLE public.lotes_minerio
+    ADD CONSTRAINT chk_teor_fe_percent CHECK (teor_fe >= 0 AND teor_fe <= 100),
+    ADD CONSTRAINT chk_umidade_percent CHECK (umidade >= 0 AND umidade <= 100),
+    ADD CONSTRAINT chk_toneladas_pos CHECK (toneladas > 0),
+    ADD CONSTRAINT chk_status_enum CHECK (status IN (0, 1, 2));
+
+
+INSERT INTO public.lotes_minerio
+(codigo_lote, mina_origem, teor_fe, umidade, sio2, p, toneladas, data_producao, status, localizacao_atual)
+VALUES
+('MNA-2026-000123', 'Carajás N4E', 64.50, 6.20, 2.10, 0.045, 3200.500, NOW() - INTERVAL '2 days', 0, 'Pátio Carajás'),
+('MNA-2026-000124', 'Carajás N5S', 62.30, 7.10, 3.00, 0.050, 2800.000, NOW() - INTERVAL '1 day', 1, 'EFVM - Trem 123'),
+('MNA-2026-000125', 'Itabira',     65.10, 5.80, 1.90, 0.038, 3500.750, NOW(),                    2, 'Porto Tubarão');
+
+SELECT * FROM "LotesMinerio";
+
+
+

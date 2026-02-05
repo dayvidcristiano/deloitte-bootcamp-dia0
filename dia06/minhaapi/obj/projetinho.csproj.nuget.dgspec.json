@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\minhaapi\\projetinho.csproj": {}
+    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia06\\minhaapi\\projetinho.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\minhaapi\\projetinho.csproj": {
+    "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia06\\minhaapi\\projetinho.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\minhaapi\\projetinho.csproj",
+        "projectUniqueName": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia06\\minhaapi\\projetinho.csproj",
         "projectName": "projetinho",
-        "projectPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\minhaapi\\projetinho.csproj",
+        "projectPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia06\\minhaapi\\projetinho.csproj",
         "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia05\\minhaapi\\obj\\",
+        "outputPath": "C:\\Users\\aluno\\Desktop\\bootcamp_dtt\\deloitte-bootcamp-dia0\\dia06\\minhaapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -48,7 +48,19 @@
               "target": "Package",
               "version": "[10.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[10.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[10.0.2, )"
             },
