@@ -1,24 +1,23 @@
-Objetivo do sistema: O sistema foi desenvolvido para acompanhar o fluxo de visitantes de um Coworking. 
+Objetivo do sistema: O sistema foi desenvolvido para acompanhar o fluxo de visitantes de um coworking.
 
 Linguagem utilizada: C#.
 
-Principais funcionalidades: Cadastrar, Listar, Buscar por nome, Registrar Saída.
+Principais funcionalidades: Cadastrar, listar, buscar por nome e registrar saída.
 
-Principais variaveis: Nome, Documento, PrimeiraVez, HorarioChegada. 
+Principais variáveis: Nome, Documento, PrimeiraVez, HorarioChegada.
 
-Principais classes: Visitante, Coworking, CadastrarVisitante, ListarVisitante, RegistrarSaida, BuscarVisitante. 
+Principais classes: Visitante, Coworking, CadastrarVisitante, ListarVisitante, RegistrarSaida, BuscarVisitante.
 
-Foi utilizado try/catch para que os erros que estiverem no código ele consiga mostrar o erro. o try ele aramazena o codigo a ser utilizado e o catch ele aponta uma mensagem de erro, caso haja erro ao rodar o codigo. 
+Foi utilizado try/catch para que os erros que estiverem no código possam ser exibidos. O try armazena o código a ser utilizado e o catch aponta uma mensagem de erro caso haja erro ao rodar o código.
 
-Ao iniciar o programa um menu devera ser exibido para que o usuario possa escolher qual função executar. O menu foi desenvolvido dentro de um laço while para que ele continue rodando até o momento em que o usuario permita parar. 
+Ao iniciar o programa, um menu deverá ser exibido para que o usuário possa escolher qual função executar. O menu foi desenvolvido dentro de um laço while para que ele continue rodando até o momento em que o usuário permita parar.
 
-Dentro do laço foi utilizado o switch/case para que quando o usuário selecione o número, uma ação seja execuatda, ou seja, ele chame uma função declarada. 
+Dentro do laço, foi utilizado o switch/case para que, quando o usuário selecione um número, uma ação seja executada, ou seja, uma função declarada seja chamada.
 
-Foram criadas funções para cada ação a ser chamada, a primeira função em código é o CadastrarVisitante, que recebe apenas as informações digitadas pelo usuario e armazenada na variavel 'V'. 
+Foram criadas funções para cada ação a ser chamada. A primeira função no código é a CadastrarVisitante, que recebe apenas as informações digitadas pelo usuário e as armazena na variável v.
 
-A função ListarVisitante recebe informações armazenadas na variavel 'v'. Um FOR foi criado para que as informações sejam armazenadas dentro de um array, com o contador iniciando a partir de 0. 
+A função ListarVisitante recebe as informações armazenadas na variável v. Um for foi criado para que as informações sejam percorridas dentro de um array, com o contador iniciando a partir de 0.
 
-Para o RegistrarSaida foi utilizado o 'RemoveAt' que remove apenas o objeto selecionado do array. O usuario escolhe qual o indice/id que ele deseja remover, ex.: '0'; e apenas aquele id será removido. 
+Para o RegistrarSaida, foi utilizado o RemoveAt, que remove apenas o objeto selecionado do array. O usuário escolhe qual índice/ID deseja remover, por exemplo: “0”, e apenas aquele ID será removido.
 
-Para BuscarVisitante foi utilizado foreach para recorrer todos os dados aramazenados dentro do laço, e a pessoa conseguir filtrar visitante digitando apenas o nome. Foi utilizado o 'ToUpper' para que o usuario consiga buscar digitando de qualquer forma o caractere, seja caixa alta ou baixa. 
-
+Para BuscarVisitante, foi utilizado o foreach para percorrer todos os dados armazenados, permitindo que a pessoa filtre o visitante digitando apenas o nome. Foi utilizado o ToUpper para que o usuário consiga buscar digitando o nome de qualquer forma, seja em caixa alta ou baixa.

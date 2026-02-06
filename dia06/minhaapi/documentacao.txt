@@ -1,0 +1,7 @@
+Objetivo do sistema: CRUD para cadastrar os lotes de minas que estão abertas atualmente e registrar tudo o que foi retirado de lá.
+
+Linguagem utilizada: C#.
+
+Sistemas utilizados para testar a API e o banco de dados:
+Docker e Insomnia.
+
