@@ -1,7 +1,28 @@
-Objetivo do sistema: CRUD para cadastrar os lotes de minas que estão abertas atualmente e registrar tudo o que foi retirado de lá.
+Objetivo do sistema:
+O sistema foi desenvolvido para gerenciar lotes de minério, permitindo o controle completo do ciclo de vida desses lotes, desde o cadastro até a atualização, consulta e exclusão, garantindo rastreabilidade, organização e integridade das informações.
 
-Linguagem utilizada: C#.
+Linguagem utilizada:
+C#.
 
-Sistemas utilizados para testar a API e o banco de dados:
-Docker e Insomnia.
+Framework e tecnologias:
+ASP.NET Core Web API, Entity Framework Core e PostgreSQL como banco de dados relacional.
 
+Principais funcionalidades:
+Cadastrar lote de minério, listar todos os lotes, buscar lote por ID, listar lotes com filtros (status e mina de origem), listar lotes com paginação, atualizar informações de um lote existente (PUT) e excluir um lote do sistema (DELETE).
+
+Principais variáveis/atributos do lote:
+Id, CodigoLote, MinaOrigem, TeorFe, Umidade, SiO2, P, Toneladas, DataProducao, Status e LocalizacaoAtual.
+
+Principais classes:
+LoteMinerio, AppDbContext, LotesMinerioController, CreateLoteMinerioDto, UpdateLoteMinerioDto LoteMinerioResponseDto, StatusLote.
+
+O Entity Framework Core foi utilizado para fazer a comunicação entre a aplicação e o banco de dados, permitindo criar tabelas por meio de migrations, consultar, inserir, atualizar e remover dados sem a necessidade de escrever SQL manualmente.
+
+No controller, cada funcionalidade foi implementada como um endpoint HTTP, utilizando os verbos corretos:
+POST para criar um lote, GET para buscar um lote por ID ou listar todos, PUT para atualizar um lote existente, DELETE para remover um lote.
+
+Os DTOs foram utilizados para separar o modelo de banco de dados dos dados expostos pela API, aumentando a segurança e a organização do código.
+
+A listagem de dados utiliza LINQ para filtrar, ordenar e paginar os resultados, facilitando a busca de informações específicas e melhorando a performance em cenários com muitos registros.
+
+A API pode ser testada utilizando ferramentas como Insomnia ou Postman, enviando requisições HTTP para os endpoints configurados, com dados em formato JSON no corpo das requisições.
