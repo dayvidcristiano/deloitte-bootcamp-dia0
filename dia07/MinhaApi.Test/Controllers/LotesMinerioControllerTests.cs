@@ -1,105 +1,123 @@
-using Xunit;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-
-using MinhaApi.Controllers;
+using Microsoft.EntityFrameworkCore;
 using MinhaApi.Data;
 using MinhaApi.Dtos;
+using MinhaApi.Models;
 
-namespace MinhaApi.Test.Controllers
+namespace MinhaApi.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class LotesMinerioController : ControllerBase
 {
-    public class LotesMinerioControllerTests
+    private readonly AppDbContext _context;
+
+    public LotesMinerioController(AppDbContext context)
     {
-        private AppDbContext CriarContextoInMemory()
-        {
-            var options = new DbContextOptionsBuilder<AppDbContext>()
-                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
-                .Options;
+        _context = context;
+    }
 
-            return new AppDbContext(options);
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll(
+        [FromQuery] string? codigoLote,
+        [FromQuery] StatusLote? status)
+    {
+        IQueryable<LoteMinerio> query = _context.LotesMinerio;
 
-        [Fact]
-        public async Task Create_DeveRetornarBadRequest_QuandoCodigoLoteVazio()
-        {
-            var context = CriarContextoInMemory();
-            var controller = new LotesMinerioController(context);
+        if (!string.IsNullOrEmpty(codigoLote))
+            query = query.Where(l => l.CodigoLote.Contains(codigoLote));
 
-            var dto = new CreateLoteMinerioDto
+        if (status.HasValue)
+            query = query.Where(l => l.Status == status.Value);
+
+        var result = await query
+            .Select(l => new LoteMinerioResponseDto
             {
-                CodigoLote = "",
-                MinaOrigem = "Mina A",
-                LocalizacaoAtual = "Pátio",
-                TeorFe = 60,
-                Umidade = 5,
-                Toneladas = 100,
-                Status = 0
-            };
+                Id = l.Id,
+                CodigoLote = l.CodigoLote,
+                MinaOrigem = l.MinaOrigem,
+                LocalizacaoAtual = l.LocalizacaoAtual,
+                TeorFe = l.TeorFe,
+                Umidade = l.Umidade,
+                Toneladas = l.Toneladas,
+                Status = l.Status
+            })
+            .ToListAsync();
 
-            var result = await controller.Create(dto);
+        return Ok(result);
+    }
 
-            var badRequest = Assert.IsType<BadRequestObjectResult>(result);
-            Assert.Equal("CodigoLote é obrigatório.", badRequest.Value);
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var lote = await _context.LotesMinerio.FindAsync(id);
 
-        [Fact]
-        public async Task Create_DeveRetornarCreated_QuandoDadosValidos()
+        if (lote == null)
+            return NotFound();
+
+        return Ok(new LoteMinerioResponseDto
         {
-            var context = CriarContextoInMemory();
-            var controller = new LotesMinerioController(context);
+            Id = lote.Id,
+            CodigoLote = lote.CodigoLote,
+            MinaOrigem = lote.MinaOrigem,
+            LocalizacaoAtual = lote.LocalizacaoAtual,
+            TeorFe = lote.TeorFe,
+            Umidade = lote.Umidade,
+            Toneladas = lote.Toneladas,
+            Status = lote.Status
+        });
+    }
 
-            var dto = new CreateLoteMinerioDto
-            {
-                CodigoLote = "LT-001",
-                MinaOrigem = "Mina A",
-                LocalizacaoAtual = "Pátio",
-                TeorFe = 65,
-                Umidade = 4,
-                Toneladas = 200,
-                Status = 1
-            };
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateLoteMinerioDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.CodigoLote))
+            return BadRequest("CodigoLote é obrigatório.");
 
-            var result = await controller.Create(dto);
-
-            var created = Assert.IsType<CreatedAtActionResult>(result);
-            Assert.NotNull(created.Value);
-        }
-
-        [Fact]
-        public async Task GetById_DeveRetornarNotFound_QuandoNaoExiste()
+        var lote = new LoteMinerio
         {
-            var context = CriarContextoInMemory();
-            var controller = new LotesMinerioController(context);
+            CodigoLote = dto.CodigoLote,
+            MinaOrigem = dto.MinaOrigem,
+            LocalizacaoAtual = dto.LocalizacaoAtual,
+            TeorFe = dto.TeorFe,
+            Umidade = dto.Umidade,
+            Toneladas = dto.Toneladas,
+            Status = (StatusLote)dto.Status
+        };
 
-            var result = await controller.GetById(999);
+        _context.LotesMinerio.Add(lote);
+        await _context.SaveChangesAsync();
 
-            Assert.IsType<NotFoundResult>(result);
-        }
+        return CreatedAtAction(nameof(GetById), new { id = lote.Id }, lote);
+    }
 
-        [Fact]
-        public async Task GetById_DeveRetornarOk_QuandoExiste()
-        {
-            var context = CriarContextoInMemory();
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, UpdateLoteMinerioDto dto)
+    {
+        var lote = await _context.LotesMinerio.FindAsync(id);
 
-            context.LotesMinerio.Add(new MinhaApi.Models.LoteMinerio
-            {
-                CodigoLote = "LT-002",
-                MinaOrigem = "Mina B",
-                LocalizacaoAtual = "Porto",
-                TeorFe = 62,
-                Umidade = 6,
-                Toneladas = 150,
-                Status = MinhaApi.Models.StatusLote.EmTransporte
-            });
+        if (lote == null)
+            return NotFound("Lote não encontrado.");
 
-            await context.SaveChangesAsync();
+        lote.LocalizacaoAtual = dto.LocalizacaoAtual;
+        lote.Status = (StatusLote)dto.Status;
 
-            var controller = new LotesMinerioController(context);
+        await _context.SaveChangesAsync();
 
-            var result = await controller.GetById(1);
+        return NoContent();
+    }
 
-            var ok = Assert.IsType<OkObjectResult>(result);
-            Assert.NotNull(ok.Value);
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var lote = await _context.LotesMinerio.FindAsync(id);
+
+        if (lote == null)
+            return NotFound("Lote não encontrado.");
+
+        _context.LotesMinerio.Remove(lote);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
     }
 }

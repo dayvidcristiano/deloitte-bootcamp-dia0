@@ -1,0 +1,34 @@
+Summary
+  Generated on: 10/02/2026 - 14:54:15
+  Coverage date: 10/02/2026 - 14:44:18
+  Parser: Cobertura
+  Assemblies: 1
+  Classes: 12
+  Files: 13
+  Line coverage: 8.7%
+  Covered lines: 81
+  Uncovered lines: 850
+  Coverable lines: 931
+  Total lines: 1373
+  Branch coverage: 6.4% (18 of 280)
+  Covered branches: 18
+  Total branches: 280
+  Method coverage: 44.7% (38 of 85)
+  Full method coverage: 43.5% (37 of 85)
+  Covered methods: 38
+  Fully covered methods: 37
+  Total methods: 85
+
+projetinho                                           8.7%
+  Microsoft.AspNetCore.OpenApi.Generated               0%
+  MinhaApi.Controllers.LotesMinerioController       29.2%
+  MinhaApi.Data.AppDbContext                         100%
+  MinhaApi.Dtos.CreateLoteMinerioDto                 100%
+  MinhaApi.Dtos.LoteMinerioResponseDto              96.1%
+  MinhaApi.Dtos.UpdateLoteMinerioDto                   0%
+  MinhaApi.Models.LoteMinerio                        100%
+  Program                                              0%
+  projetinho.Migrations.AjusteModelo                   0%
+  projetinho.Migrations.AppDbContextModelSnapshot      0%
+  projetinho.Migrations.InitialCreate                  0%
+  System.Runtime.CompilerServices                      0%
