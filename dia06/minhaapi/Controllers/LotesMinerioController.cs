@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using MinhaApi.Data;
 using MinhaApi.Models;
 using MinhaApi.Dtos;
+using StackExchange.Redis;
+using System.Text.Json;
 
 namespace MinhaApi.Controllers
 {
@@ -11,8 +13,13 @@ namespace MinhaApi.Controllers
     public class LotesMinerioController : ControllerBase
     {
         private readonly AppDbContext _db;
+        private readonly IDatabase _redis;
 
-        public LotesMinerioController(AppDbContext db) => _db = db;
+        public LotesMinerioController(AppDbContext db, IConnectionMultiplexer redis)
+        {
+            _db = db;
+            _redis = redis.GetDatabase();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateLoteMinerioDto input)
@@ -53,57 +60,60 @@ namespace MinhaApi.Controllers
             _db.LotesMinerio.Add(lote);
             await _db.SaveChangesAsync();
 
+            await _redis.KeyDeleteAsync("lotes:all");
+
             return CreatedAtAction(nameof(GetById), new { id = lote.Id }, new LoteMinerioResponseDto(lote));
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
+            var cacheKey = $"lote:{id}";
+            var cached = await _redis.StringGetAsync(cacheKey);
+
+            if (!cached.IsNullOrEmpty)
+            {
+                var loteCache = JsonSerializer.Deserialize<LoteMinerioResponseDto>((string)cached!);
+                return Ok(loteCache);
+            }
+
             var lote = await _db.LotesMinerio.FindAsync(id);
-            return lote is null ? NotFound() : Ok(new LoteMinerioResponseDto(lote));
+            if (lote is null)
+                return NotFound();
+
+            var response = new LoteMinerioResponseDto(lote);
+
+            await _redis.StringSetAsync(
+                cacheKey,
+                JsonSerializer.Serialize(response),
+                TimeSpan.FromMinutes(5));
+
+            return Ok(response);
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] int? status, [FromQuery] string? minaOrigem)
+        public async Task<IActionResult> GetAll()
         {
-            var query = _db.LotesMinerio.AsQueryable();
+            var cacheKey = "lotes:all";
+            var cached = await _redis.StringGetAsync(cacheKey);
 
-            if (status.HasValue)
-                query = query.Where(x => (int)x.Status == status.Value);
+            if (!cached.IsNullOrEmpty)
+            {
+                var lotesCache = JsonSerializer.Deserialize<List<LoteMinerioResponseDto>>((string)cached!);
+                return Ok(lotesCache);
+            }
 
-            if (!string.IsNullOrWhiteSpace(minaOrigem))
-                query = query.Where(x => x.MinaOrigem.Contains(minaOrigem));
-
-            var lotes = await query
+            var lotes = await _db.LotesMinerio
                 .OrderByDescending(x => x.DataProducao)
                 .Select(x => new LoteMinerioResponseDto(x))
                 .ToListAsync();
 
+            await _redis.StringSetAsync(
+                cacheKey,
+                JsonSerializer.Serialize(lotes),
+                TimeSpan.FromMinutes(5));
+
             return Ok(lotes);
-        }
-
-        [HttpGet("paged")]
-        public async Task<IActionResult> GetPaged([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
-        {
-            if (page < 1) page = 1;
-            if (pageSize < 1) pageSize = 10;
-
-            var lotes = await _db.LotesMinerio
-                .OrderBy(x => x.Id)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(x => new LoteMinerioResponseDto(x))
-                .ToListAsync();
-
-            var total = await _db.LotesMinerio.CountAsync();
-
-            return Ok(new
-            {
-                Page = page,
-                PageSize = pageSize,
-                Total = total,
-                Data = lotes
-            });
         }
 
         [HttpPut("{id:int}")]
@@ -112,27 +122,6 @@ namespace MinhaApi.Controllers
             var lote = await _db.LotesMinerio.FindAsync(id);
             if (lote is null)
                 return NotFound("Lote não encontrado.");
-
-            if (string.IsNullOrWhiteSpace(input.CodigoLote))
-                return BadRequest("CodigoLote é obrigatório.");
-            if (string.IsNullOrWhiteSpace(input.MinaOrigem))
-                return BadRequest("MinaOrigem é obrigatória.");
-            if (string.IsNullOrWhiteSpace(input.LocalizacaoAtual))
-                return BadRequest("LocalizacaoAtual é obrigatória.");
-            if (input.TeorFe is < 0 or > 100)
-                return BadRequest("TeorFe deve estar entre 0 e 100.");
-            if (input.Umidade is < 0 or > 100)
-                return BadRequest("Umidade deve estar entre 0 e 100.");
-            if (input.Toneladas <= 0)
-                return BadRequest("Toneladas deve ser maior que 0.");
-            if (input.Status is < 0 or > 2)
-                return BadRequest("Status inválido (0, 1 ou 2).");
-
-            var codigoEmUso = await _db.LotesMinerio
-                .AnyAsync(x => x.CodigoLote == input.CodigoLote && x.Id != id);
-
-            if (codigoEmUso)
-                return Conflict("Já existe outro lote com esse CodigoLote.");
 
             lote.CodigoLote = input.CodigoLote;
             lote.MinaOrigem = input.MinaOrigem;
@@ -147,6 +136,9 @@ namespace MinhaApi.Controllers
 
             await _db.SaveChangesAsync();
 
+            await _redis.KeyDeleteAsync($"lote:{id}");
+            await _redis.KeyDeleteAsync("lotes:all");
+
             return Ok(new LoteMinerioResponseDto(lote));
         }
 
@@ -159,6 +151,9 @@ namespace MinhaApi.Controllers
 
             _db.LotesMinerio.Remove(lote);
             await _db.SaveChangesAsync();
+
+            await _redis.KeyDeleteAsync($"lote:{id}");
+            await _redis.KeyDeleteAsync("lotes:all");
 
             return NoContent();
         }
