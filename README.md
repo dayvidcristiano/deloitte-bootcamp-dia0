@@ -43,4 +43,9 @@ O projeto **MinhaApi** consiste em uma **API REST em C# utilizando ASP.NET Core 
 
 A documentação específica do projeto pode ser encontrada dentro das próprias pastas do repositório.
 
+---
+
+### Repositório Projeto Final
+https://github.com/dayvidcristiano/sistema-de-monitoramento-bootcamp-dtt.git
+
 <p align="center"> © 2026 Dayvid Cristiano </p>
